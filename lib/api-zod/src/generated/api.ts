@@ -14,3 +14,23 @@ import * as zod from "zod";
 export const HealthCheckResponse = zod.object({
   status: zod.string(),
 });
+
+/**
+ * Stores a contact form submission from the website
+ * @summary Submit a contact form
+ */
+export const submitContactFormBodyNameMin = 2;
+
+export const submitContactFormBodyPhoneMin = 7;
+
+export const submitContactFormBodySubjectMin = 5;
+
+export const submitContactFormBodyMessageMin = 10;
+
+export const SubmitContactFormBody = zod.object({
+  name: zod.string().min(submitContactFormBodyNameMin),
+  email: zod.string().email(),
+  phone: zod.string().min(submitContactFormBodyPhoneMin),
+  subject: zod.string().min(submitContactFormBodySubjectMin),
+  message: zod.string().min(submitContactFormBodyMessageMin),
+});
