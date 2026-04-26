@@ -16,7 +16,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Loader2, Upload, Save, Trash2 } from "lucide-react";
+import { Loader2, Upload, Save, Trash2, X, Plus } from "lucide-react";
 import { toast } from "sonner";
 import type { ProjectItem, ProjectStatus } from "@/data/content";
 
@@ -82,8 +82,10 @@ export function ProjectFormDialog({
   const [form, setForm] = useState<ProjectItem>(initial ?? EMPTY);
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [galleryUploading, setGalleryUploading] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
+  const galleryRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     setForm(initial ?? EMPTY);
@@ -119,6 +121,47 @@ export function ProjectFormDialog({
     } finally {
       setUploading(false);
     }
+  }
+
+  async function uploadOne(file: File): Promise<string> {
+    const dataUrl = await resizeImage(file);
+    const res = await fetch("/api/admin/upload", {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ filename: file.name, dataUrl }),
+    });
+    if (!res.ok) throw new Error(await res.text().catch(() => "Upload failed"));
+    const json: { url: string } = await res.json();
+    return json.url;
+  }
+
+  async function handleGalleryFiles(files: FileList) {
+    const list = Array.from(files).filter((f) => f.type.startsWith("image/"));
+    if (list.length === 0) {
+      toast.error("Please choose image files.");
+      return;
+    }
+    setGalleryUploading(true);
+    let added = 0;
+    let failed = 0;
+    for (const file of list) {
+      try {
+        const url = await uploadOne(file);
+        setForm((f) => ({ ...f, gallery: [...f.gallery, url] }));
+        added++;
+      } catch (err) {
+        console.error(err);
+        failed++;
+      }
+    }
+    setGalleryUploading(false);
+    if (added > 0) toast.success(`Uploaded ${added} image${added === 1 ? "" : "s"}`);
+    if (failed > 0) toast.error(`${failed} upload${failed === 1 ? "" : "s"} failed`);
+  }
+
+  function removeGalleryImage(idx: number) {
+    setForm((f) => ({ ...f, gallery: f.gallery.filter((_, i) => i !== idx) }));
   }
 
   async function handleSave() {
@@ -225,6 +268,81 @@ export function ProjectFormDialog({
                   }}
                 />
               </div>
+            </div>
+
+            {/* Gallery images */}
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-display uppercase tracking-[0.2em] text-foreground/60">
+                  Gallery Images ({form.gallery.length})
+                </label>
+                <button
+                  type="button"
+                  onClick={() => galleryRef.current?.click()}
+                  disabled={galleryUploading}
+                  className="bg-foreground text-background px-3 py-1.5 text-xs font-display uppercase tracking-wider inline-flex items-center gap-1.5 hover:bg-foreground/85 disabled:opacity-60"
+                >
+                  {galleryUploading ? (
+                    <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                  ) : (
+                    <Plus className="h-3.5 w-3.5" />
+                  )}
+                  {galleryUploading ? "Uploading…" : "Add Images"}
+                </button>
+              </div>
+
+              {form.gallery.length === 0 ? (
+                <button
+                  type="button"
+                  onClick={() => galleryRef.current?.click()}
+                  disabled={galleryUploading}
+                  className="w-full h-32 border-2 border-dashed border-border bg-muted/40 flex flex-col items-center justify-center gap-2 text-foreground/50 hover:border-primary/60 hover:text-primary transition-colors"
+                >
+                  <Upload className="h-5 w-5" />
+                  <span className="text-xs font-display uppercase tracking-wider">
+                    Click to upload gallery images
+                  </span>
+                  <span className="text-[10px] font-serif text-foreground/40">
+                    You can select multiple images at once.
+                  </span>
+                </button>
+              ) : (
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                  {form.gallery.map((url, idx) => (
+                    <div
+                      key={`${url}-${idx}`}
+                      className="relative group aspect-video bg-muted border border-border overflow-hidden"
+                    >
+                      <img
+                        src={url}
+                        alt={`Gallery ${idx + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => removeGalleryImage(idx)}
+                        className="absolute top-1.5 right-1.5 bg-foreground/85 text-white p-1 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-700"
+                        title="Remove image"
+                      >
+                        <X className="h-3.5 w-3.5" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              <input
+                ref={galleryRef}
+                type="file"
+                accept="image/*"
+                multiple
+                className="hidden"
+                onChange={(e) => {
+                  const files = e.target.files;
+                  if (files && files.length > 0) void handleGalleryFiles(files);
+                  if (galleryRef.current) galleryRef.current.value = "";
+                }}
+              />
             </div>
 
             {/* Title */}

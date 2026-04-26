@@ -21,18 +21,20 @@ export function Hero() {
 
   return (
     <div className="relative min-h-[760px] lg:min-h-[820px] max-h-[920px] flex items-center overflow-hidden bg-background">
-      {/* Right-side flyover/highway image */}
+      {/* Right-side flyover/highway image — kept colorful with a warm tint so
+          it reads as a real photo backdrop, not a desaturated grey wash. */}
       <div className="absolute inset-y-0 right-0 w-full md:w-[58%] lg:w-[55%] z-0">
         <img
           src="/sigma/basima2.jpeg"
           alt="Highway flyover under construction"
-          className="w-full h-full object-cover grayscale contrast-[0.95] brightness-[0.95]"
+          className="w-full h-full object-cover saturate-125 contrast-105 brightness-105"
         />
-        {/* Greyish wash so it reads as a muted backdrop, not a photo focal point */}
-        <div className="absolute inset-0 bg-foreground/15 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-background/35" />
+        {/* Warm terracotta tint to reinforce the brand colour without killing detail */}
+        <div className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
+        {/* Light page-tone wash so text on the left stays readable */}
+        <div className="absolute inset-0 bg-background/15" />
         {/* Soft fade into the page background on the left edge */}
-        <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-background via-background/85 to-transparent" />
+        <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-background via-background/80 to-transparent" />
         {/* Bottom & top fade so it integrates with the page */}
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
         <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background to-transparent" />
