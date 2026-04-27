@@ -111,10 +111,10 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: idx * 0.1 }}
-                  className="flex items-start gap-4 p-6 border border-background/10 bg-background/5"
+                  className="flex items-start gap-4 p-6 border border-primary/30 bg-white"
                 >
                   <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-0.5" />
-                  <span className="font-serif text-lg text-white/90">
+                  <span className="font-serif text-lg text-black">
                     <EditableText keyName={`about.why.item.${idx}`} defaultText={reason} />
                   </span>
                 </motion.div>
