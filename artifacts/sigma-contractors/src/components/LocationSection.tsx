@@ -58,7 +58,7 @@ export function LocationSection() {
               allowFullScreen={true}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="absolute inset-0 grayscale contrast-125 opacity-80 mix-blend-multiply"
+              className="absolute inset-0 contrast-110 opacity-95 saturate-90"
               title="Office Location Map"
             ></iframe>
           </div>
