@@ -21,20 +21,19 @@ export function Hero() {
 
   return (
     <div className="relative min-h-[760px] lg:min-h-[820px] max-h-[920px] flex items-center overflow-hidden bg-background">
-      {/* Right-side flyover/highway image — kept colorful with a warm tint so
-          it reads as a real photo backdrop, not a desaturated grey wash. */}
+      {/* Right-side flyover/highway image — full color so machinery/steel pops
+          against the navy backdrop. */}
       <div className="absolute inset-y-0 right-0 w-full md:w-[58%] lg:w-[55%] z-0">
         <img
           src="/sigma/basima2.jpeg"
           alt="Highway flyover under construction"
-          className="w-full h-full object-cover saturate-125 contrast-105 brightness-105"
+          className="w-full h-full object-cover saturate-110 contrast-105"
         />
-        {/* Warm terracotta tint to reinforce the brand colour without killing detail */}
-        <div className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
-        {/* Light page-tone wash so text on the left stays readable */}
-        <div className="absolute inset-0 bg-background/15" />
-        {/* Soft fade into the page background on the left edge */}
-        <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-background via-background/80 to-transparent" />
+        {/* Navy gradient — heavy on the left so headline is readable, fading to
+            transparent on the right per the Power & Trust spec. */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
+        {/* Subtle navy darken across the whole image so it harmonises with the page */}
+        <div className="absolute inset-0 bg-background/30" />
         {/* Bottom & top fade so it integrates with the page */}
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
         <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background to-transparent" />
@@ -91,7 +90,7 @@ export function Hero() {
           <Button
             asChild
             size="lg"
-            className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 h-14 text-base group"
+            className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 h-14 text-base group shadow-[0_0_25px_-4px_hsl(var(--primary)/0.7)] hover:shadow-[0_0_35px_-2px_hsl(var(--primary)/0.85)] transition-shadow"
           >
             <Link href="/projects">
               Our Projects
@@ -102,7 +101,7 @@ export function Hero() {
             asChild
             size="lg"
             variant="outline"
-            className="rounded-none border-foreground/20 text-foreground hover:bg-foreground hover:text-background font-semibold px-8 h-14 text-base bg-background/60 backdrop-blur-sm"
+            className="rounded-none border-primary/40 text-foreground hover:border-primary hover:text-primary font-semibold px-8 h-14 text-base bg-card/60 backdrop-blur-sm"
           >
             <Link href="/contact">Contact Us</Link>
           </Button>
