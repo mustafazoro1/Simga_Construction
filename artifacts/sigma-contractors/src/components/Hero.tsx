@@ -85,7 +85,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-16 flex flex-col sm:flex-row gap-4"
+          className="mt-20 sm:mt-16 flex flex-col sm:flex-row gap-4"
         >
           <Button
             asChild
@@ -109,7 +109,7 @@ export function Hero() {
       </div>
 
       {/* Progress Indicators */}
-      <div className="absolute bottom-10 left-0 right-0 z-10">
+      <div className="absolute bottom-6 sm:bottom-10 left-0 right-0 z-10">
         <div className="container mx-auto px-4 flex items-center gap-3">
           {HERO_TAGLINES.map((_, idx) => (
             <button
