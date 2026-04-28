@@ -11,7 +11,11 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-1 space-y-6">
             <Link href="/" className="inline-flex items-center gap-3">
-              <img src={sigmaLogo} alt="Sigma Contractors Logo" className="h-14 w-auto" />
+              <img
+                src={sigmaLogo}
+                alt="Sigma Contractors Logo"
+                className="h-14 w-auto bg-white/95 rounded-sm px-3 py-2 shadow-sm"
+              />
             </Link>
             <p className="text-sm text-background/80 leading-relaxed font-sans">
               <EditableText
