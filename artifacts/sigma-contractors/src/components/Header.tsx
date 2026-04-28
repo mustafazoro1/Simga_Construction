@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 import { useAdmin } from "@/admin/AdminContext";
 import { AdminLoginDialog } from "@/admin/AdminLoginDialog";
-import sigmaLogo from "@assets/sigma.logo-Photoroom_1777371371301.png";
+import sigmaLogo from "@assets/sigma,logo-Picsart-BackgroundRemover_1777371870601.png";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
