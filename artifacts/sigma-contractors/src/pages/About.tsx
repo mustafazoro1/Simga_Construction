@@ -91,7 +91,7 @@ export default function About() {
         <section className="py-24 bg-foreground text-background">
           <div className="container mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-5xl font-display text-white mb-6 uppercase">
+              <h2 className="text-3xl md:text-5xl font-display text-black mb-6 uppercase">
                 <EditableText keyName="about.why.title" defaultText="Why Choose Us" />
               </h2>
               <p className="font-serif text-lg text-background/70">
