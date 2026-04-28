@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 import { useAdmin } from "@/admin/AdminContext";
 import { AdminLoginDialog } from "@/admin/AdminLoginDialog";
+import sigmaLogo from "@assets/sigma.logo_1777370790737.png";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -23,7 +24,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-card bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/70">
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <img src="/sigma/logo.png" alt="Sigma Contractors Logo" className="h-10 w-auto" />
+          <img src={sigmaLogo} alt="Sigma Contractors Logo" className="h-10 w-auto" />
         </Link>
 
         {/* Desktop Nav */}

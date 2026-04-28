@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { CONTACT_INFO } from "@/data/content";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { EditableText } from "@/admin/EditableText";
+import sigmaLogo from "@assets/sigma.logo_1777370790737.png";
 
 export function Footer() {
   return (
@@ -10,11 +11,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-1 space-y-6">
             <Link href="/" className="inline-flex items-center gap-3">
-              <span className="font-display text-4xl leading-none text-primary">Σ</span>
-              <span className="flex flex-col leading-tight">
-                <span className="font-display text-2xl tracking-wider text-background">SIGMA</span>
-                <span className="font-sans text-[9px] tracking-[0.18em] text-background/60 uppercase">Contractors &amp; Engineering Works</span>
-              </span>
+              <img src={sigmaLogo} alt="Sigma Contractors Logo" className="h-14 w-auto" />
             </Link>
             <p className="text-sm text-background/80 leading-relaxed font-sans">
               <EditableText
