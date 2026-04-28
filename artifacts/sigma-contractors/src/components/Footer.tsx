@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { CONTACT_INFO } from "@/data/content";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { EditableText } from "@/admin/EditableText";
-import sigmaLogo from "@assets/sigma.logo_1777370790737.png";
+import sigmaLogo from "@assets/sigma.logo-removebg-preview_1777371114490.png";
 
 export function Footer() {
   return (
