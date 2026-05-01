@@ -45,7 +45,7 @@ export default function About() {
                   <p>
                     <EditableText
                       keyName="about.who.body1"
-                      defaultText="Sigma Contractors & Engineering Works (Pvt) Ltd is a trusted name in construction, civil engineering, and infrastructure development. With a strong commitment to quality, safety, and innovation, we deliver reliable engineering solutions tailored to meet modern industry standards."
+                      defaultText="Sigma Contractors & Engineering Works (Pvt) Ltd is a trusted name in construction, civil engineering, and infrastructure development. With a strong commitment to quality, safety, and innovation, we deliver reliable engineering solutions tailored to meet modern industry standards.The Fastest growing company in Pakistan.With the best engineers and workers and 24 hour service."
                       multiline
                     />
                   </p>

@@ -51,54 +51,56 @@
 
 :root {
   --button-outline: rgba(255,255,255, .10);
-  --badge-outline: rgba(255,255,255, .05);
+  --badge-outline: rgba(255,255,255, .08);
   --opaque-button-border-intensity: 9;
   --elevate-1: rgba(255,255,255, .04);
   --elevate-2: rgba(255,255,255, .09);
 
-  /* Power & Trust palette — Navy primary + Construction Amber accent.
-     Dark by default so steel and machinery photos pop. */
+  /*--background: 212 65% 35%; light blue near aqua
+                  210 25% 32%; grey
+                  210 50% 28%; darker then aqua
+                  210 50% 18% darker then darker aqua
+                  216 65% 11%; DARK blue
+                  210 64% 11%;  DARK navy  */
+  
+  /* Power & Trust theme — Midnight Navy #0A192F */
+  --background: 210 50% 25%;
+  /* Cool White #F8FAFC */
+  --foreground: 210 40% 96%;
+  --border: 218 40% 22%;
 
-  /* #0A192F navy */
-  --background: 218 65% 11%;
-  /* Cool white text */
-  --foreground: 210 30% 96%;
-  /* #233554 hairline */
-  --border: 219 41% 24%;
+  /* Industrial Slate #112240  218 58% 16%;*/
+  --card: 218 58% 19%;
+  --card-foreground: 210 40% 98%;
+  --card-border: 218 40% 24%;
 
-  /* #112240 elevated card */
-  --card: 220 58% 16%;
-  --card-foreground: 210 30% 96%;
-  --card-border: 219 41% 24%;
+  --popover: 218 58% 16%;
+  --popover-foreground: 210 40% 98%;
+  --popover-border: 218 40% 24%;
 
-  --popover: 220 58% 16%;
-  --popover-foreground: 210 30% 96%;
-  --popover-border: 219 41% 24%;
-
-  /* #F59E0B Safety / Construction Amber */
+  /* Safety Amber #F59E0B */
   --primary: 38 92% 50%;
-  --primary-foreground: 218 65% 11%;
+  --primary-foreground: 210 64% 11%;
 
-  /* Muted navy block */
-  --secondary: 220 50% 20%;
-  --secondary-foreground: 210 30% 96%;
+  --secondary: 218 50% 20%;
+  --secondary-foreground: 210 40% 98%;
 
-  --muted: 220 45% 18%;
-  --muted-foreground: 215 20% 72%;
+  --muted: 218 45% 18%;
+  --muted-foreground: 215 25% 70%;
 
   --accent: 38 92% 50%;
-  --accent-foreground: 218 65% 11%;
+  --accent-foreground: 210 64% 11%;
 
   --destructive: 0 72% 50%;
-  --destructive-foreground: 0 0% 100%;
+  --destructive-foreground: 210 40% 98%;
 
-  --input: 220 50% 22%;
+  --input: 218 50% 22%;
   --ring: 38 92% 50%;
 
   --app-font-sans: 'Inter', sans-serif;
-  --app-font-serif: 'Playfair Display', serif;
+  --app-font-serif: 'Barlow', sans-serif,'Playfair Display';
   --app-font-display: 'Archivo Black', sans-serif;
-  
+
   --radius: 0.25rem;
 
   --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
@@ -112,41 +114,40 @@
 
 .dark {
   --button-outline: rgba(255,255,255, .10);
-  --badge-outline: rgba(255,255,255, .05);
+  --badge-outline: rgba(255,255,255, .08);
   --opaque-button-border-intensity: 9;
   --elevate-1: rgba(255,255,255, .04);
   --elevate-2: rgba(255,255,255, .09);
 
-  /* Fallback dark values but we stay light primarily */
-  --background: 30 10% 12%;
-  --foreground: 35 25% 96%;
-  --border: 30 10% 25%;
-  
-  --card: 30 10% 15%;
-  --card-foreground: 35 25% 96%;
-  --card-border: 30 10% 25%;
+  --background: 210 64% 11%;
+  --foreground: 210 40% 98%;
+  --border: 218 40% 22%;
 
-  --popover: 30 10% 15%;
-  --popover-foreground: 35 25% 96%;
-  --popover-border: 30 10% 25%;
+  --card: 218 58% 16%;
+  --card-foreground: 210 40% 98%;
+  --card-border: 218 40% 24%;
 
-  --primary: 15 60% 55%;
-  --primary-foreground: 0 0% 100%;
+  --popover: 218 58% 16%;
+  --popover-foreground: 210 40% 98%;
+  --popover-border: 218 40% 24%;
 
-  --secondary: 30 10% 25%;
-  --secondary-foreground: 35 25% 96%;
+  --primary: 38 92% 50%;
+  --primary-foreground: 210 64% 11%;
 
-  --muted: 30 10% 20%;
-  --muted-foreground: 30 15% 70%;
+  --secondary: 218 50% 20%;
+  --secondary-foreground: 210 40% 98%;
 
-  --accent: 30 10% 25%;
-  --accent-foreground: 35 25% 96%;
+  --muted: 218 45% 18%;
+  --muted-foreground: 215 25% 70%;
 
-  --destructive: 0 62% 30%;
-  --destructive-foreground: 35 25% 96%;
+  --accent: 38 92% 50%;
+  --accent-foreground: 210 64% 11%;
 
-  --input: 30 10% 25%;
-  --ring: 15 60% 55%;
+  --destructive: 0 72% 50%;
+  --destructive-foreground: 210 40% 98%;
+
+  --input: 218 50% 22%;
+  --ring: 38 92% 50%;
 }
 
 @layer base {

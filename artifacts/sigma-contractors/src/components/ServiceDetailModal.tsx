@@ -42,7 +42,7 @@ export function ServiceDetailModal({
                 className="absolute inset-0 w-full h-full"
                 imgClassName="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/30 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/45 via-foreground/10 to-transparent pointer-events-none" />
               {adminControls && onEdit && (
                 <button
                   type="button"

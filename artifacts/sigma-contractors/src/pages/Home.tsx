@@ -46,7 +46,8 @@ function FeaturedProjects() {
     .slice(0, 4);
 
   return (
-    <section className="py-24 bg-background border-t border-border/60">
+    <section className="py-24 bg-background border-t border-border/80">
+
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
@@ -55,7 +56,7 @@ function FeaturedProjects() {
               Featured Projects
             </h2>
             <p className="text-base md:text-lg text-foreground/65 leading-relaxed">
-              A selection of our major civil engineering works, delivering critical infrastructure across the region.
+              A selection of our major civil engineering works, delivering critical infrastructure across the region.The Fastest growing company in Pakistan.
             </p>
           </div>
           <Link

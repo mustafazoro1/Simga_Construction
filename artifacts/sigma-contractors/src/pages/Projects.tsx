@@ -51,8 +51,11 @@ export default function Projects() {
   const [projects, setProjects] = useState<ProjectItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<string>("All");
-  const [statusFilter, setStatusFilter] = useState<(typeof STATUSES)[number]>("All");
-  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
+  const [statusFilter, setStatusFilter] =
+    useState<(typeof STATUSES)[number]>("All");
+  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(
+    null,
+  );
   const [editing, setEditing] = useState<ProjectItem | null>(null);
   const [creating, setCreating] = useState(false);
   const [location] = useLocation();
@@ -126,7 +129,10 @@ export default function Projects() {
     window.history.replaceState({}, "", "/projects");
   }
 
-  async function handleStatusChange(project: ProjectItem, status: ProjectStatus) {
+  async function handleStatusChange(
+    project: ProjectItem,
+    status: ProjectStatus,
+  ) {
     if (project.status === status) return;
     const prev = project;
     // optimistic
@@ -159,7 +165,7 @@ export default function Projects() {
           <div className="container mx-auto px-4">
             {/* Status Filters */}
             <div className="text-center mb-4">
-              <p className="text-xs font-display tracking-[0.3em] uppercase text-foreground/50 mb-3">
+              <p className="text-xs font-display tracking-[0.3em] uppercase text-foreground/90 mb-3">
                 Project Status
               </p>
               <div className="flex flex-wrap justify-center gap-2">
@@ -181,7 +187,7 @@ export default function Projects() {
 
             {/* Category Filters */}
             <div className="text-center mb-8 mt-8">
-              <p className="text-xs font-display tracking-[0.3em] uppercase text-foreground/50 mb-3">
+              <p className="text-xs font-display tracking-[0.3em] uppercase text-foreground/90 mb-3">
                 Category
               </p>
               <div className="flex flex-wrap justify-center gap-2">
@@ -228,7 +234,10 @@ export default function Projects() {
             )}
 
             {/* Grid */}
-            <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div
+              layout
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
               <AnimatePresence>
                 {filteredProjects.map((project) => (
                   <motion.div
@@ -275,8 +284,12 @@ export default function Projects() {
                               <SelectValue />
                             </SelectTrigger>
                             <SelectContent>
-                              <SelectItem value="Completed">Completed</SelectItem>
-                              <SelectItem value="In Progress">In Progress</SelectItem>
+                              <SelectItem value="Completed">
+                                Completed
+                              </SelectItem>
+                              <SelectItem value="In Progress">
+                                In Progress
+                              </SelectItem>
                               <SelectItem value="Upcoming">Upcoming</SelectItem>
                             </SelectContent>
                           </Select>
@@ -302,7 +315,7 @@ export default function Projects() {
                             e.stopPropagation();
                             setEditing(project);
                           }}
-                          className="absolute bottom-4 right-4 z-10 bg-foreground/85 text-white px-3 py-1.5 text-[10px] font-display uppercase tracking-[0.2em] inline-flex items-center gap-1.5 hover:bg-foreground"
+                          className="absolute bottom-4 right-4 z-10 bg-foreground/85 text-black px-3 py-1.5 text-[10px] font-display uppercase tracking-[0.2em] inline-flex items-center gap-1.5 hover:bg-foreground"
                         >
                           <Pencil className="h-3 w-3" /> Edit
                         </button>
@@ -314,12 +327,18 @@ export default function Projects() {
                       </h3>
                       <div className="mt-auto space-y-2 text-sm text-foreground/70 font-sans">
                         <div className="flex justify-between gap-3">
-                          <span className="font-semibold text-foreground/90">Employer:</span>
-                          <span className="text-right truncate">{project.employer}</span>
+                          <span className="font-semibold text-foreground/90">
+                            Employer:
+                          </span>
+                          <span className="text-right truncate">
+                            {project.employer}
+                          </span>
                         </div>
                         {project.completed !== "N/A" && (
                           <div className="flex justify-between">
-                            <span className="font-semibold text-foreground/90">Completed:</span>
+                            <span className="font-semibold text-foreground/90">
+                              Completed:
+                            </span>
                             <span>{project.completed}</span>
                           </div>
                         )}
@@ -342,7 +361,9 @@ export default function Projects() {
               <div className="max-h-[90vh] overflow-y-auto">
                 <DialogHeader className="sr-only">
                   <DialogTitle>{selectedProject.title}</DialogTitle>
-                  <DialogDescription>{selectedProject.scopeNote ?? selectedProject.title}</DialogDescription>
+                  <DialogDescription>
+                    {selectedProject.scopeNote ?? selectedProject.title}
+                  </DialogDescription>
                 </DialogHeader>
                 <div className="h-64 sm:h-80 md:h-96 relative bg-muted">
                   {selectedProject.hero ? (
@@ -356,7 +377,7 @@ export default function Projects() {
                       No cover image
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/15 via-foreground/10 to-transparent" />
 
                   {/* Status badge — admin gets dropdown here too */}
                   {adminControls ? (
@@ -364,7 +385,10 @@ export default function Projects() {
                       <Select
                         value={selectedProject.status}
                         onValueChange={(v) =>
-                          handleStatusChange(selectedProject, v as ProjectStatus)
+                          handleStatusChange(
+                            selectedProject,
+                            v as ProjectStatus,
+                          )
                         }
                       >
                         <SelectTrigger
@@ -374,7 +398,9 @@ export default function Projects() {
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="Completed">Completed</SelectItem>
-                          <SelectItem value="In Progress">In Progress</SelectItem>
+                          <SelectItem value="In Progress">
+                            In Progress
+                          </SelectItem>
                           <SelectItem value="Upcoming">Upcoming</SelectItem>
                         </SelectContent>
                       </Select>
@@ -392,7 +418,7 @@ export default function Projects() {
                     <button
                       type="button"
                       onClick={() => setEditing(selectedProject)}
-                      className="absolute top-16 right-4 z-10 bg-foreground/85 text-white px-3 py-1.5 text-[10px] font-display uppercase tracking-[0.2em] inline-flex items-center gap-1.5 hover:bg-foreground"
+                      className="absolute top-16 right-4 z-10 bg-foreground/75 text-black px-3 py-1.5 text-[10px] font-display uppercase tracking-[0.2em] inline-flex items-center gap-1.5 hover:bg-foreground"
                     >
                       <Pencil className="h-3 w-3" /> Edit Details
                     </button>
@@ -402,7 +428,10 @@ export default function Projects() {
                     <div className="bg-primary text-primary-foreground text-[10px] font-display uppercase tracking-[0.2em] px-3 py-1.5 inline-block mb-4">
                       {selectedProject.category}
                     </div>
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-white leading-tight">
+                    <h2
+                      className="text-2xl sm:text-3xl md:text-4xl font-serif text-gray-200 leading-tight"
+                        style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 1), 0px 0px 10px rgba(0, 0, 0, 0.8)" }}
+                      >
                       {selectedProject.title}
                     </h2>
                   </div>
@@ -419,7 +448,9 @@ export default function Projects() {
                           <p className="text-sm text-foreground/60 uppercase tracking-wider font-semibold mb-1">
                             Employer
                           </p>
-                          <p className="text-lg font-serif">{selectedProject.employer}</p>
+                          <p className="text-lg font-serif">
+                            {selectedProject.employer}
+                          </p>
                         </div>
                         {selectedProject.originalContractValue !== "N/A" && (
                           <div>
@@ -447,13 +478,17 @@ export default function Projects() {
                               <p className="text-sm text-foreground/60 uppercase tracking-wider font-semibold mb-1">
                                 Awarded
                               </p>
-                              <p className="font-serif">{selectedProject.awarded}</p>
+                              <p className="font-serif">
+                                {selectedProject.awarded}
+                              </p>
                             </div>
                             <div>
                               <p className="text-sm text-foreground/60 uppercase tracking-wider font-semibold mb-1">
                                 Completed
                               </p>
-                              <p className="font-serif">{selectedProject.completed}</p>
+                              <p className="font-serif">
+                                {selectedProject.completed}
+                              </p>
                             </div>
                           </div>
                         )}

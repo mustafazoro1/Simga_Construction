@@ -25,31 +25,82 @@ export function Footer() {
               />
             </p>
           </div>
-          
+
           <div>
-            <h4 className="font-display text-lg mb-6 uppercase tracking-wider text-background/90">Quick Links</h4>
+            <h4 className="font-display text-lg mb-6 uppercase tracking-wider text-background/90">
+              Quick Links
+            </h4>
             <ul className="space-y-3 font-sans">
-              <li><Link href="/" className="text-background/70 hover:text-primary transition-colors">Home</Link></li>
-              <li><Link href="/about" className="text-background/70 hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link href="/services" className="text-background/70 hover:text-primary transition-colors">Services</Link></li>
-              <li><Link href="/projects" className="text-background/70 hover:text-primary transition-colors">Projects</Link></li>
-              <li><Link href="/contact" className="text-background/70 hover:text-primary transition-colors">Contact</Link></li>
+              <li>
+                <Link
+                  href="/"
+                  className="text-background/70 hover:text-primary transition-colors"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="text-background/70 hover:text-primary transition-colors"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services"
+                  className="text-background/70 hover:text-primary transition-colors"
+                >
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/projects"
+                  className="text-background/70 hover:text-primary transition-colors"
+                >
+                  Projects
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-background/70 hover:text-primary transition-colors"
+                >
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-display text-lg mb-6 uppercase tracking-wider text-background/90">Services</h4>
+            <h4 className="font-display text-lg mb-6 uppercase tracking-wider text-background/90">
+              Services
+            </h4>
             <ul className="space-y-3 font-sans text-background/70">
-              <li>Roads & Highways</li>
-              <li>Canal Lining & Irrigation</li>
-              <li>Bridges & Structures</li>
-              <li>Water Supply Networks</li>
-              <li>Dams & Barrages</li>
+              <li className="hover:text-yellow-400 transition-colors duration-300">
+                <Link href="/services"> linkRoads & Highways</Link>
+              </li>
+              <li className="hover:text-yellow-400 transition-colors duration-300">
+                <Link href="/services">Canal Lining & Irrigation</Link>
+              </li>
+              <li className="hover:text-yellow-400 transition-colors duration-300">
+                <Link href="/services">Bridges & Structures</Link>
+              </li>
+              <li className="hover:text-yellow-400 transition-colors duration-300">
+                <Link href="/services">Water Supply Networks</Link>
+              </li>
+              <li className="hover:text-yellow-400 transition-colors duration-300">
+                <Link href="/services">Dams & Barrages</Link>
+              </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-display text-lg mb-6 uppercase tracking-wider text-background/90">Contact</h4>
+            <h4 className="font-display text-lg mb-6 uppercase tracking-wider text-background/90">
+              Contact
+            </h4>
             <ul className="space-y-4 font-sans">
               <li className="flex items-start gap-3 text-background/80">
                 <MapPin className="h-5 w-5 text-primary shrink-0 mt-0.5" />
@@ -81,7 +132,10 @@ export function Footer() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-background/10 flex flex-col md:flex-row items-center justify-between gap-4 font-sans text-sm text-background/50">
-          <p>© 2026 Sigma Contractors and Engineering Works (Pvt) Ltd. All rights reserved.</p>
+          <p>
+            © 2026 Sigma Contractors and Engineering Works (Pvt) Ltd. All
+            rights reserved.
+          </p>
           <div className="flex gap-4">
             <span>Karachi, Pakistan</span>
           </div>

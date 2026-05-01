@@ -143,7 +143,7 @@ export function ServicesGrid({ limit, compact = false }: ServicesGridProps) {
                       e.stopPropagation();
                       setEditing(service);
                     }}
-                    className="absolute top-3 right-3 z-10 bg-foreground/85 text-white px-2.5 py-1.5 text-[10px] font-display uppercase tracking-[0.2em] inline-flex items-center gap-1.5 hover:bg-foreground"
+                    className="absolute top-3 right-3 z-10 bg-foreground/85 text-black px-2.5 py-1.5 text-[10px] font-display uppercase tracking-[0.2em] inline-flex items-center gap-1.5 hover:bg-foreground"
                   >
                     <Pencil className="h-3 w-3" /> Edit
                   </button>

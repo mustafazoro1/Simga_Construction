@@ -31,7 +31,7 @@ export function Hero() {
         />
         {/* Navy gradient — heavy on the left so headline is readable, fading to
             transparent on the right per the Power & Trust spec. */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-transparent" />
         {/* Subtle navy darken across the whole image so it harmonises with the page */}
         <div className="absolute inset-0 bg-background/30" />
         {/* Bottom & top fade so it integrates with the page */}

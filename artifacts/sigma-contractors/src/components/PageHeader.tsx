@@ -39,8 +39,8 @@ export function PageHeader({
           imgClassName="w-full h-full object-cover"
         />
         {/* Dramatic navy overlay (pointer-events-none so the upload button stays clickable) */}
-        <div className="absolute inset-0 bg-background/70 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/55 via-background/70 to-background/90 pointer-events-none" />
+        <div className="absolute inset-0 bg-background/10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/45 via-background/60 to-background/80 pointer-events-none" />
       </div>
 
       <div className="container relative z-10 mx-auto px-6 md:px-10 pointer-events-none [&_a]:pointer-events-auto [&_button]:pointer-events-auto [&_[contenteditable=true]]:pointer-events-auto">
