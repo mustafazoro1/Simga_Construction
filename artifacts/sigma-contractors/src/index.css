@@ -63,30 +63,30 @@
                   216 65% 11%; DARK blue
                   210 64% 11%;  DARK navy  */
   
-  /* Power & Trust theme — Midnight Navy #0A192F */
-  --background: 210 50% 25%;
+  /* Power & Trust theme — Midnight Navy (Darkened) */
+  --background: 210 65% 6%;
   /* Cool White #F8FAFC */
-  --foreground: 210 40% 96%;
+  --foreground: 210 40% 98%;
   --border: 218 40% 22%;
 
-  /* Industrial Slate #112240  218 58% 16%;*/
-  --card: 218 58% 19%;
+  /* Industrial Slate (Darkened) */
+  --card: 218 58% 10%;
   --card-foreground: 210 40% 98%;
-  --card-border: 218 40% 24%;
+  --card-border: 218 40% 20%;
 
-  --popover: 218 58% 16%;
+  --popover: 218 58% 10%;
   --popover-foreground: 210 40% 98%;
-  --popover-border: 218 40% 24%;
+  --popover-border: 218 40% 20%;
 
   /* Safety Amber #F59E0B */
   --primary: 38 92% 50%;
   --primary-foreground: 210 64% 11%;
 
-  --secondary: 218 50% 20%;
+  --secondary: 218 50% 15%;
   --secondary-foreground: 210 40% 98%;
 
-  --muted: 218 45% 18%;
-  --muted-foreground: 215 25% 70%;
+  --muted: 218 45% 12%;
+  --muted-foreground: 215 20% 65%;
 
   --accent: 38 92% 50%;
   --accent-foreground: 210 64% 11%;
