@@ -12,6 +12,7 @@ import type { ProjectItem } from "@/data/content";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
+import { EditableText } from "@/admin/EditableText";
 
 function FeaturedProjects() {
   const [projects, setProjects] = useState<ProjectItem[]>([]);
