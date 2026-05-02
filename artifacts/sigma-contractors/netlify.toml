@@ -1,12 +1,10 @@
 [build]
-  # Build only the sigma-contractors project
   command = "pnpm --filter @workspace/sigma-contractors build"
-  # The output directory relative to the repo root
   publish = "artifacts/sigma-contractors/dist/public"
 
 [[redirects]]
   from = "/api/*"
-  to = "https://exciting-exploration-production.up.railway.app/api/:splat"
+  to = "https://simgaconstruction-production.up.railway.app/api/:splat"
   status = 200
   force = true
 
