@@ -1,6 +1,8 @@
 [build]
-  command = "npm run build"
-  publish = "dist/public"
+  # Build only the sigma-contractors project
+  command = "pnpm --filter @workspace/sigma-contractors build"
+  # The output directory relative to the repo root
+  publish = "artifacts/sigma-contractors/dist/public"
 
 [[redirects]]
   from = "/api/*"
