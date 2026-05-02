@@ -96,7 +96,7 @@ export default function HealthSafety() {
                 className="relative h-[400px] border border-border p-4 bg-card shadow-2xl"
               >
                 <img
-                  src="/sigma/basima2.jpeg"
+                  src="/sigma/basima1.jpeg"
                   alt="Safety on site"
                   className="w-full h-full object-cover filter saturate-[0.8]"
                 />
