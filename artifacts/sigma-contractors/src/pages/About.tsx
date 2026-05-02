@@ -64,12 +64,12 @@ export default function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="relative h-[500px] border border-border p-4 bg-card"
+                className="relative h-[500px] border border-border p-4 bg-card hidden lg:block"
               >
                 <img
-                  src="/sigma/header.jpg"
+                  src="/sigma/basima2.jpeg"
                   alt="Construction Site"
-                  className="w-full h-full object-cover filter brightness-110 saturate-100 contrast-100"
+                  className="w-full h-full object-cover object-center filter brightness-110 saturate-100 contrast-100"
                 />
                 <div className="absolute -bottom-8 -left-8 bg-primary text-primary-foreground p-8 max-w-xs shadow-xl hidden md:block">
                   <div className="text-4xl font-display mb-2">
