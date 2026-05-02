@@ -4,7 +4,7 @@
 
 [[redirects]]
   from = "/api/*"
-  to = "https://sigma-construction-zoro-123.fly.dev/api/:splat"
+  to = "https://sigma-construction-production.up.railway.app/api/:splat"
   status = 200
   force = true
 
