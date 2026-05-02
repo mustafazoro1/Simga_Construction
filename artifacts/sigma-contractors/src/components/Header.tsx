@@ -22,7 +22,7 @@ export function Header() {
   const { isAdmin } = useAdmin();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-card bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/70">
+    <header className="sticky top-0 z-50 w-full border-b border-card bg-card/90 backdrop-blur-md supports-[backdrop-filter]:bg-card/80">
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <img
