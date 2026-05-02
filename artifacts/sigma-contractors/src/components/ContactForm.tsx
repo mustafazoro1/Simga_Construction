@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { Send, Loader2 } from "lucide-react";
 import { useSubmitContactForm } from "@workspace/api-client-react";
-import { HumanCheck } from "@/components/HumanCheck";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
@@ -159,8 +159,11 @@ export function ContactForm() {
           </label>
         </div>
 
-        {/* I'm not a robot */}
-        <HumanCheck verified={verified} onChange={setVerified} />
+        {/* Real reCAPTCHA */}
+        <ReCAPTCHA
+          sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+          onChange={(token) => setVerified(!!token)}
+        />
 
         <Button
           type="submit"

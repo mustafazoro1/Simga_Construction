@@ -65,6 +65,14 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  href="/health-safety"
+                  className="text-background/70 hover:text-primary transition-colors"
+                >
+                  Health & Safety
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/contact"
                   className="text-background/70 hover:text-primary transition-colors"
                 >
