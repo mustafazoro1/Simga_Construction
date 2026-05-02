@@ -22,7 +22,13 @@ function FeaturedProjects() {
     fetch("/api/projects", { credentials: "include" })
       .then((r) => r.json())
       .then((rows: ProjectItem[]) => {
-        if (!cancelled) setProjects(rows);
+        if (!cancelled) {
+          if (Array.isArray(rows)) {
+            setProjects(rows);
+          } else {
+            console.error("Expected array but got:", rows);
+          }
+        }
       })
       .catch((err) => console.error("Failed to load featured projects", err))
       .finally(() => {
