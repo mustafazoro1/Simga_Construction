@@ -1,4 +1,6 @@
-from fastapi import APIRouter, Depends, status
+import os
+import httpx
+from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
 
@@ -14,10 +16,25 @@ router = APIRouter()
     status_code=status.HTTP_201_CREATED,
     response_model=ContactSubmissionResponse,
 )
-def submit_contact(body: ContactSubmissionInput, db: Session = Depends(get_db)):
-    # Mirror drizzle-zod's behavior: all five fields are required strings;
-    # FastAPI/Pydantic returns 422 on validation failure, but the original
-    # Express handler returned 400 with a `message` field. Match that.
+async def submit_contact(body: ContactSubmissionInput, db: Session = Depends(get_db)):
+    # Verify reCAPTCHA token if provided
+    secret_key = os.getenv("RECAPTCHA_SECRET_KEY")
+    if secret_key and body.recaptcha_token:
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                "https://www.google.com/recaptcha/api/siteverify",
+                data={
+                    "secret": secret_key,
+                    "response": body.recaptcha_token,
+                },
+            )
+            result = response.json()
+            if not result.get("success"):
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="Human verification failed. Please try again.",
+                )
+
     row = ContactSubmission(
         name=body.name,
         email=body.email,

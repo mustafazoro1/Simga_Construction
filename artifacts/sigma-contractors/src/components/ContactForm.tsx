@@ -23,6 +23,7 @@ type FormValues = z.infer<typeof formSchema>;
 
 export function ContactForm() {
   const [verified, setVerified] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   // Honeypot — real users leave this blank, naive bots fill it.
   const [website, setWebsite] = useState("");
 
@@ -59,11 +60,11 @@ export function ContactForm() {
       // Bot trap — silently drop.
       return;
     }
-    if (!verified) {
+    if (!verified || !recaptchaToken) {
       toast.error("Please complete the human check first.");
       return;
     }
-    submitMutation.mutate({ data: values });
+    submitMutation.mutate({ data: { ...values, recaptchaToken } as any });
   }
 
   return (
@@ -161,8 +162,11 @@ export function ContactForm() {
 
         {/* Real reCAPTCHA */}
         <ReCAPTCHA
-          sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-          onChange={(token) => setVerified(!!token)}
+          sitekey="6LeivNUsAAAAADG-aXPFZRSBGgzRNlcLt5Py2Gq8"
+          onChange={(token) => {
+            setVerified(!!token);
+            setRecaptchaToken(token);
+          }}
         />
 
         <Button

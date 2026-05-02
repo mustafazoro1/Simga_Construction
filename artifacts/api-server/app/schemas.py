@@ -31,6 +31,7 @@ class ContactSubmissionInput(BaseModel):
     phone: str
     subject: str
     message: str
+    recaptcha_token: Optional[str] = None
 
 
 class ContactSubmissionResponse(BaseModel):
