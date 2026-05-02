@@ -10,7 +10,7 @@ import { EditableText } from "@/admin/EditableText";
 const WHY_CHOOSE_US = [
   "Professional & Experienced Team",
   "Quality Assurance & Safety Standards",
-  "Timely Project Completion",
+  "Specialized in complex infrastructure, like the 'impossible' Rohri Canal Lining Project (RD 645+670 to RD 680+000)",
   "Modern Equipment & Technology",
   "Client-Centered Approach"
 ];

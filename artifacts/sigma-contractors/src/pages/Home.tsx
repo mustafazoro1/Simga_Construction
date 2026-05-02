@@ -59,11 +59,25 @@ function FeaturedProjects() {
           <div className="max-w-2xl">
             <div className="text-xs font-display text-primary mb-4 tracking-[0.3em] uppercase">Selected Work</div>
             <h2 className="text-4xl md:text-5xl font-display text-foreground mb-5 uppercase leading-[1.05]">
-              Featured Projects
+              Our Major Projects
             </h2>
             <p className="text-base md:text-lg text-foreground/65 leading-relaxed">
-              A selection of our major civil engineering works, delivering critical infrastructure across the region.The Fastest growing company in Pakistan.
+              A selection of our major civil engineering works, delivering critical infrastructure across the region. The fastest growing engineering company in Pakistan.
             </p>
+            <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-sm text-foreground/80 font-serif">
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-1">●</span>
+                <span>Lining of Rohri Canal RD 645+670 to RD 680+000 (Completed)</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-1">●</span>
+                <span>Sibi Jhatpat Feeder Canal Rehabilitation (Completed)</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-1">●</span>
+                <span>Karachi Metropolitan Infrastructure Development (Completed)</span>
+              </li>
+            </ul>
           </div>
           <Link
             href="/projects"
