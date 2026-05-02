@@ -1,0 +1,31 @@
+kind = "api"
+previewPath = "/api" # TODO - should be excluded from preview in the first place
+title = "API Server"
+version = "1.0.0"
+id = "3B4_FFSkEVBkAeYMFRJ2e"
+
+[[services]]
+localPort = 8080
+name = "API Server"
+paths = ["/api"]
+
+[services.development]
+run = "pnpm --filter @workspace/api-server run dev"
+
+[services.production]
+
+[services.production.build]
+args = ["pip", "install", "--no-cache-dir", "-r", "artifacts/api-server/requirements.txt"]
+
+[services.production.build.env]
+PIP_DISABLE_PIP_VERSION_CHECK = "1"
+
+[services.production.run]
+args = ["python", "-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
+
+[services.production.run.env]
+PORT = "8080"
+PYTHONUNBUFFERED = "1"
+
+[services.production.health.startup]
+path = "/api/healthz"

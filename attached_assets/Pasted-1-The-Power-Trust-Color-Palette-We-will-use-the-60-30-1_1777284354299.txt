@@ -1,0 +1,30 @@
+1. The "Power & Trust" Color Palette
+​We will use the 60-30-10 Rule: 60% Primary (Navy), 30% Secondary (White/Light Gray), and 10% Accent (Construction Amber).
+2. Structural Styling (Applying the Colors)
+​The "Glass" Header
+​To look classy, your header shouldn't be a solid block. Use Glassmorphism.
+​Color: #0A192F at 80% transparency.
+​Effect: Add a backdrop-filter: blur(10px).
+​Border: A 1px bottom border in #112240.
+​Result: It looks like high-end architectural glass.
+​The Hero Section (The "Hook")
+​Since you have that great fleet photo, the Hero section is your biggest selling point.
+​Overlay: Apply a gradient from left to right: rgba(10, 25, 47, 0.9) to transparent.
+​Typography: Large, bold headings in Safety Amber for the first word, and Cool White for the rest.
+​Button: Use the Safety Amber (#F59E0B) with a "Box Shadow" that glows slightly. It makes the "Call to Action" impossible to miss.
+​Service & Project Cards
+​To avoid the "flat" look, give your cards an "Elevation" effect.
+​Background: #112240.
+​Border: 1px solid #233554.
+​Hover Effect: When a user hovers, the border should turn Safety Amber and the card should lift up 5px. This feels interactive and high-quality.
+​3. Typography: The "Engineering" Font
+​Fonts carry the weight of the brand.
+​Headings: Use "Oswald" or "Montserrat". They are geometric and bold, looking like they were stamped onto steel.
+​Body Text: Use "Inter" or "Roboto". They are highly legible and look professional in technical descriptions.
+​4. The "Classy" Details
+​To push it into the "Premium" category, add these three small details:
+​Thin Gold/Amber Lines: Use very thin (1px or 2px) Amber lines to separate sections or underline headings. This mimics a "blueprint" or a "measuring tape" look.
+​Monochrome Images: In sections that aren't about specific projects (like "About Us"), use black-and-white photos with high contrast. It looks very sophisticated.
+​Dark Mode by Default: High-end engineering sites often look better in dark mode because it makes the machinery and steel in photos "pop" more than a bright white background.
+​How to Implement This in Your CSS/Tailwind
+​In your index.css or Tailwind config, you can map these colors like this:
